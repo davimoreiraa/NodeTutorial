@@ -1,7 +1,12 @@
 const { Person } = require('./person')
 const person = new Person("Davi") 
 console.log(person.sayMyName())
+const connectToDataBase = require('./src/database/connect')
 
+const dotenv = require('dotenv')
+dotenv.config()
+
+connectToDataBase()
 
 require('./modules/test/express')
 //Para executar um arquivo com o node basta digitar no terminal: node (nome do arquivo)
