@@ -56,6 +56,18 @@ app.patch('/users/:id', async (req, res) => {
     }
 })
 
+app.delete('/users/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const user = await UserModel.findByIdAndRemove(id)
+        res.status(200).json(user)
+    }
+
+    catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
 //patch => usado p alterar uma parte do registro
 //put => usado p alterar o registro completamente
 
