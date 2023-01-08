@@ -44,6 +44,21 @@ app.post('/users', async (req, res) => {
     //code status 201 diz que o registro foi criado com sucesso
 })
 
+app.patch('/users', async (req, res) => {
+    const id = req.params.id
+    try {
+        const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true })
+        res.status(200).json(user)
+    }
+
+    catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+//patch => usado p alterar uma parte do registro
+//put => usado p alterar o registro completamente
+
 const port = 3000
 
 app.listen(port, () => console.log(`Server express rodando na port ${port}`))
