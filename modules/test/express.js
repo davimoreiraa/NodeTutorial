@@ -44,7 +44,7 @@ app.post('/users', async (req, res) => {
     //code status 201 diz que o registro foi criado com sucesso
 })
 
-app.patch('/users', async (req, res) => {
+app.patch('/users/:id', async (req, res) => {
     const id = req.params.id
     try {
         const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true })
