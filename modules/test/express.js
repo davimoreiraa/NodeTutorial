@@ -5,6 +5,16 @@ const app = express()
 
 app.use(express.json())
 
+
+app.use((req, res, next) => {
+    //middleaware: funções executadas antes de qualquer requisiçao ser feita
+    //Podem por exemplo imprimir informaçoes sobre a requisiçao realizada
+    console.log(`Request type: ${req.method}`)
+    console.log(`Content-type: ${req.headers["content-type"]}`)
+    console.log(`Date: ${new Date()}`)
+    next()
+})
+
 app.get("/home", (req, res) => {
     res.contentType('application/html')
     res.status(200).send("<h1>Hello world</h1>")
