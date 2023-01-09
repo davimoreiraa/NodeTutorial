@@ -5,6 +5,8 @@ const app = express()
 
 app.use(express.json())
 
+app.set("viwe engine", "ejs")
+app.set("viwes", "src/views")
 
 app.use((req, res, next) => {
     //middleaware: funções executadas antes de qualquer requisiçao ser feita
@@ -13,6 +15,10 @@ app.use((req, res, next) => {
     console.log(`Content-type: ${req.headers["content-type"]}`)
     console.log(`Date: ${new Date()}`)
     next()
+})
+
+app.get('/views/users', async (req,res) => {
+    res.render('index')
 })
 
 app.get("/home", (req, res) => {
