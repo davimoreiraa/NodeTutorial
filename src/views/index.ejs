@@ -9,7 +9,14 @@
     <!-- para usar js em arquivos .ejs basta colocar entre <% %> -->
     <div class="container">
         <div class="content">
-            <h3>ola</h3>
+            <% if(users.length > 0) { %> <% users.forEach(user => { %>
+                <h3 class="title"><%= user.firstName %></h3>
+                <p class="email"><%= user.email %></p>
+                <p class="password"><%= user.password %></p>
+            <% }) %> 
+            <% } else { %> 
+                <h3>Não há usuários para exibir</h3>
+            <% } %>
         </div>
     </div>
 </body>
