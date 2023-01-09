@@ -1,12 +1,12 @@
 const express = require("express")
-const UserModel = require('../../src/models/user.model')
+const UserModel = require('../src/models/user.model')
 
 const app = express()
 
 app.use(express.json())
 
-app.set("viwe engine", "ejs")
-app.set("viwes", "src/views")
+app.set("view engine", "ejs")
+app.set("views", "src/views")
 
 app.use((req, res, next) => {
     //middleaware: funções executadas antes de qualquer requisiçao ser feita
@@ -18,8 +18,7 @@ app.use((req, res, next) => {
 })
 
 app.get("/views/users", async (req,res) => {
-    const users = await UserModelModel.find({})
-    res.render('index.ejs')
+    res.render('index')
 })
 
 app.get("/home", (req, res) => {
