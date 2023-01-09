@@ -17,7 +17,8 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get('/views/users', async (req,res) => {
+app.get("/views/users", async (req,res) => {
+    const users = await UserModelModel.find({})
     res.render('index.ejs')
 })
 

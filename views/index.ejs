@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello world</h1>
+    <!-- para usar js em arquivos .ejs basta colocar entre <% %> -->
+    <div class="container">
+        <div class="content">
+            <% if(= users.length > 0) { %> <% users.forEach(user => { %>
+                <h3 class="title"><%= user.firstName %></h3>
+                <p class="email"><%= user.email %></p>
+                <p class="password"><%= user.password %></p>
+            <% })} %> 
+        </div>
+    </div>
 </body>
 </html>
