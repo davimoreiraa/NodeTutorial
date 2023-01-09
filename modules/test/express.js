@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/views/users', async (req,res) => {
-    res.render('index')
+    res.render('index.ejs')
 })
 
 app.get("/home", (req, res) => {
